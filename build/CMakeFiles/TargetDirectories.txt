@@ -1,0 +1,3 @@
+C:/Users/Marek/Desktop/sem8/pos/POS_edge/build/CMakeFiles/OpenCVExample.dir
+C:/Users/Marek/Desktop/sem8/pos/POS_edge/build/CMakeFiles/ALL_BUILD.dir
+C:/Users/Marek/Desktop/sem8/pos/POS_edge/build/CMakeFiles/ZERO_CHECK.dir

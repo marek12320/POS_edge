@@ -1,0 +1,10 @@
+^C:\USERS\MAREK\DESKTOP\SEM8\POS\POS_EDGE\BUILD\CMAKEFILES\0A638EDD436A593089EB363C5262A78A\GENERATE.STAMP.RULE
+setlocal
+F:\programy\Cmake\bin\cmake.exe -SC:/Users/Marek/Desktop/sem8/pos/POS_edge -BC:/Users/Marek/Desktop/sem8/pos/POS_edge/build --check-stamp-list CMakeFiles/generate.stamp.list --vs-solution-file C:/Users/Marek/Desktop/sem8/pos/POS_edge/build/OpenCVExample.sln
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
