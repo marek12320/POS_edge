@@ -1,15 +1,35 @@
 #include <opencv2/opencv.hpp>
 #include <iostream>
+#include <fstream>
+#include <map>
+#include <string>
+#include "Datas.cpp"
+
 
 int main() {
-std :: string imagePath = "cat.jpg";
-// std :: string imagePath = "milkyway.jpg";
-cv :: Mat image = cv :: imread(imagePath, cv :: IMREAD_COLOR);
-cv::Mat edges;
-cv::Canny(image, edges, 50, 150); // You can tweak these thresholds
-cv::imshow("Original", image);
-cv::imshow("Edges", edges);
-cv::waitKey(0); // Wait for a key press
-cv :: waitKey(0);
-return 0;
+
+    Datas datas("config.ini", "source", "destination");
+
+    std::string imagePath = datas.getReadPath();
+
+
+
+    cv::Mat image = cv::imread(imagePath, cv::IMREAD_COLOR);
+
+    if (image.empty()) {
+        std::cerr << "Nie mozna zaladowac obrazu: " << imagePath << std::endl;
+        return 1;
+    }
+
+    cv::Mat edges;
+    cv::Canny(image, edges, 50, 150);
+    cv::imshow("Original", image);
+    cv::imshow("Edges", edges);
+
+    datas.save2path(edges);
+    
+
+    cv::waitKey(0);
+
+    return 0;
 }
