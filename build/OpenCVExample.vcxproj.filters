@@ -1,16 +1,16 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <ClCompile Include="C:\Users\Janusz\source\repos\POS_edge\main.cpp">
+    <ClCompile Include="C:\Users\Marek\Desktop\sem8\pos\POS_edge\main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <CustomBuild Include="C:\Users\Janusz\source\repos\POS_edge\CMakeLists.txt" />
+    <CustomBuild Include="C:\Users\Marek\Desktop\sem8\pos\POS_edge\CMakeLists.txt" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Source Files">
-      <UniqueIdentifier>{8A6CA2FE-9A83-3813-94A3-EB3768140533}</UniqueIdentifier>
+      <UniqueIdentifier>{02B1D056-8B7A-31E0-A1B8-7A603EB838B1}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>
