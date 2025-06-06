@@ -17,8 +17,8 @@ public:
     }
 
     
-    void save2path(cv::Mat edges) {
-        std::string savePath = getValue(output);
+    void save2path(cv::Mat edges, std::string name) {
+        std::string savePath = getValue(output)+"\\"+name;
         cv::imwrite(savePath, edges);
     }
 

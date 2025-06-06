@@ -9,25 +9,24 @@
 int main() {
 
     Datas datas("config.ini", "source", "destination");
-
     std::string imagePath = datas.getReadPath();
-
+    imagePath = imagePath + "\\cat.jpg";
 
 
     cv::Mat image = cv::imread(imagePath, cv::IMREAD_COLOR);
-
     if (image.empty()) {
         std::cerr << "Nie mozna zaladowac obrazu: " << imagePath << std::endl;
         return 1;
     }
+
 
     cv::Mat edges;
     cv::Canny(image, edges, 50, 150);
     cv::imshow("Original", image);
     cv::imshow("Edges", edges);
 
-    datas.save2path(edges);
-    
+    datas.save2path(edges, "edges.png");
+
 
     cv::waitKey(0);
 
