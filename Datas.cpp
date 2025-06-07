@@ -26,6 +26,8 @@ public:
         return getValue(input);
     }
 
+
+
 private:
     std::string getValue(const std::string& key) {
         std::ifstream file(fileINI);
