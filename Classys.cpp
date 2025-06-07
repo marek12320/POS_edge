@@ -69,8 +69,17 @@ class Images {
 private:
     std::mutex coutMutex;   ///< Mutex do synchronizacji wypisywania na konsolê
     std::mutex datasMutex;  ///< Mutex do synchronizacji operacji na danych
+    std::vector<cv::Mat> collectedImages; ///< Zbiór przetworzonych obrazów
+    std::mutex imagesMutex; ///< Mutex do synchronizacji dostêpu do kolekcji obrazów
+
 
 public:
+    /**
+ * @brief Tworzy siatkê z przetworzonych obrazów i wyœwietla j¹ u¿ytkownikowi.
+ *
+ * 
+ */
+    void showImageGrid();
     /**
      * @brief Przetwarza obraz, wykonuje detekcjê krawêdzi (Canny) i zapisuje wynik.
      *
@@ -108,6 +117,8 @@ Datas::Datas(std::string FileINI, std::string Input, std::string Output) {
     else {
         std::cout << "przetworzono " << count << " obrazow dla pliku " << FileINI << std::endl;
     }
+    images.showImageGrid();  
+
 }
 
 void Datas::save2path(const cv::Mat& edges, const std::string& name) {
@@ -185,12 +196,51 @@ void Images::processImage(const std::string& filePath, const std::string& filena
     cv::Canny(image, edges, 50, 150);
 
     {
+        std::lock_guard<std::mutex> lock(imagesMutex);
+        collectedImages.push_back(edges.clone());  // przechowaj kopiê obrazu
+    }
+
+    {
         std::lock_guard<std::mutex> lock(datasMutex);
         datas.save2path(edges, filename);
     }
 
     {
-        std::lock_guard<std::mutex> lock(coutMutex);
-        std::cout << "Zapisano: " << filename << std::endl;
+        //std::lock_guard<std::mutex> lock(coutMutex);
+        //std::cout << "Zapisano: " << filename << std::endl;
     }
+
+    
+
+
 }
+void Images::showImageGrid() {
+    std::lock_guard<std::mutex> lock(imagesMutex);
+    if (collectedImages.empty()) return;
+
+    size_t total = collectedImages.size();
+    int cols = static_cast<int>(std::ceil(std::sqrt(total)));
+    int rows = static_cast<int>(std::ceil(static_cast<double>(total) / cols));
+
+    int cellWidth = collectedImages[0].cols;
+    int cellHeight = collectedImages[0].rows;
+
+    cv::Mat grid = cv::Mat::zeros(rows * cellHeight, cols * cellWidth, collectedImages[0].type());
+
+    for (size_t i = 0; i < total; ++i) {
+        cv::Mat resized;
+        cv::resize(collectedImages[i], resized, cv::Size(cellWidth, cellHeight));
+
+        int r = static_cast<int>(i) / cols;
+        int c = static_cast<int>(i) % cols;
+        cv::Rect roi(c * cellWidth, r * cellHeight, cellWidth, cellHeight);
+
+        resized.copyTo(grid(roi));
+    }
+
+    cv::namedWindow("Wszystkie obrazy", cv::WINDOW_NORMAL);
+    cv::imshow("Wszystkie obrazy", grid);
+    cv::waitKey(0);
+    cv::destroyWindow("Wszystkie obrazy");
+}
+

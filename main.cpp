@@ -3,11 +3,6 @@
  * @brief G³ówny plik wykonywalny programu do przetwarzania obrazów (Canny Edge Detection).
  */
 
-#include <opencv2/opencv.hpp>
-#include <iostream>
-#include <string>
-#include <vector>
-#include <thread>
 #include "Classys.cpp"
 
 /**
