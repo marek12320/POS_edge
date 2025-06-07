@@ -7,96 +7,112 @@
 #include <thread>
 #include <mutex>
 
-/**
- * @brief Forward declaration klasy Images potrzebna do deklaracji metody z parametrem typu Images.
- */
+/// Forward declaration klasy Images
 class Images;
 
 /**
  * @class Datas
- * @brief Klasa do zarz¹dzania œcie¿kami i konfiguracj¹ plików INI oraz zapisywaniem wyników.
+ * @brief Klasa odpowiedzialna za zarz¹dzanie œcie¿kami, plikiem INI oraz obs³ug¹ i zapisem obrazów.
  */
 class Datas {
 public:
-    std::string fileINI;  ///< Nazwa pliku konfiguracyjnego INI
-    std::string input;    ///< Klucz katalogu wejœciowego w INI
-    std::string output;   ///< Klucz katalogu wyjœciowego w INI
+    std::string fileINI; ///< Œcie¿ka do pliku INI
+    std::string input;   ///< Klucz odpowiadaj¹cy katalogowi wejœciowemu
+    std::string output;  ///< Klucz odpowiadaj¹cy katalogowi wyjœciowemu
 
     /**
      * @brief Konstruktor klasy Datas.
-     * @param FileINI Nazwa pliku INI.
-     * @param Input Klucz dla œcie¿ki wejœciowej.
-     * @param Output Klucz dla œcie¿ki wyjœciowej.
+     *
+     * Inicjalizuje przetwarzanie obrazów z rozszerzeniami JPG i PNG.
+     *
+     * @param FileINI Œcie¿ka do pliku INI.
+     * @param Input Klucz z pliku INI okreœlaj¹cy katalog wejœciowy.
+     * @param Output Klucz z pliku INI okreœlaj¹cy katalog wyjœciowy.
      */
     Datas(std::string FileINI, std::string Input, std::string Output);
 
     /**
-     * @brief Zapisuje przetworzony obraz do œcie¿ki wyjœciowej.
-     * @param edges Obraz wynikowy (np. po Canny).
+     * @brief Zapisuje przetworzony obraz do katalogu wynikowego.
+     *
+     * @param edges Obraz do zapisania (np. wynik detekcji krawêdzi).
      * @param name Nazwa pliku.
      */
     void save2path(const cv::Mat& edges, const std::string& name);
 
+private:
     /**
-     * @brief Pobiera œcie¿kê do katalogu wejœciowego z pliku INI.
-     * @return Œcie¿ka do katalogu wejœciowego.
-     */
-    std::string getReadPath();
-
-    /**
-     * @brief Przetwarza wszystkie pliki z danym rozszerzeniem w folderze.
+     * @brief Przetwarza wszystkie pliki o okreœlonym rozszerzeniu w katalogu wejœciowym.
      *
-     * @param extension Rozszerzenie plików do przetworzenia (np. "jpg").
-     * @param images Referencja do obiektu klasy Images.
-     * @param threads Wektor w¹tków do przetwarzania.
+     * Tworzy osobne w¹tki do przetwarzania ka¿dego obrazu.
+     *
+     * @param extension Rozszerzenie plików (np. "jpg", "png").
+     * @param images Obiekt klasy Images odpowiedzialny za przetwarzanie.
+     * @param threads Wektor aktywnych w¹tków.
      * @param count Licznik przetworzonych obrazów.
      */
     void processFilesWithExtension(const std::string& extension, Images& images, std::vector<std::thread>& threads, int& count);
 
-private:
     /**
      * @brief Pobiera wartoœæ przypisan¹ do danego klucza z pliku INI.
-     * @param key Klucz w pliku INI.
-     * @return Wartoœæ przypisana do klucza.
+     *
+     * @param key Klucz do odczytu (np. "source", "destination").
+     * @return std::string Wartoœæ przypisana do klucza lub pusty string, jeœli nie znaleziono.
      */
     std::string getValue(const std::string& key);
 };
 
 /**
  * @class Images
- * @brief Klasa odpowiedzialna za przetwarzanie obrazów (np. Canny edge detection).
+ * @brief Klasa odpowiedzialna za przetwarzanie obrazów (np. wykrywanie krawêdzi).
  */
 class Images {
 private:
-    std::mutex coutMutex;   ///< Mutex do bezpiecznego wypisywania do konsoli.
-    std::mutex datasMutex;  ///< Mutex do bezpiecznego zapisu obrazów.
+    std::mutex coutMutex;   ///< Mutex do synchronizacji wypisywania na konsolê
+    std::mutex datasMutex;  ///< Mutex do synchronizacji operacji na danych
 
 public:
     /**
-     * @brief Przetwarza pojedynczy obraz (Canny edge detection) i zapisuje go.
+     * @brief Przetwarza obraz, wykonuje detekcjê krawêdzi (Canny) i zapisuje wynik.
      *
-     * @param filePath Pe³na œcie¿ka do pliku obrazu.
-     * @param filename Nazwa pliku obrazu.
-     * @param datas Referencja do obiektu klasy Datas (do zapisu wyniku).
+     * @param filePath Pe³na œcie¿ka do pliku wejœciowego.
+     * @param filename Nazwa pliku.
+     * @param datas Referencja do obiektu klasy Datas odpowiedzialnego za zapis.
      */
     void processImage(const std::string& filePath, const std::string& filename, Datas& datas);
 };
 
-// ---------- Implementacja metod Datas ----------
+// ============================== Implementacja Datas ==============================
 
 Datas::Datas(std::string FileINI, std::string Input, std::string Output) {
     fileINI = FileINI;
     input = Input;
     output = Output;
+
+    Images images;
+    std::vector<std::thread> threads;
+    int count = 0;
+
+    processFilesWithExtension("jpg", images, threads, count);
+    processFilesWithExtension("png", images, threads, count);
+
+    for (auto& t : threads) {
+        if (t.joinable()) {
+            t.join();
+            count++;
+        }
+    }
+
+    if (count == 0) {
+        std::cout << "bledna sciezka dostepu lub brak rozszerzen jpg/png dla pliku " << FileINI << std::endl;
+    }
+    else {
+        std::cout << "przetworzono " << count << " obrazow dla pliku " << FileINI << std::endl;
+    }
 }
 
 void Datas::save2path(const cv::Mat& edges, const std::string& name) {
     std::string savePath = getValue(output) + "\\" + name;
     cv::imwrite(savePath, edges);
-}
-
-std::string Datas::getReadPath() {
-    return getValue(input);
 }
 
 std::string Datas::getValue(const std::string& key) {
@@ -116,11 +132,12 @@ std::string Datas::getValue(const std::string& key) {
 }
 
 void Datas::processFilesWithExtension(const std::string& extension, Images& images, std::vector<std::thread>& threads, int& count) {
-    std::string inputDir = getReadPath();
+    std::string inputDir = getValue(input);
+    if (inputDir.empty()) return;
+
     std::string searchPath = inputDir + "\\*." + extension;
     WIN32_FIND_DATAA fileData;
     HANDLE hFind = FindFirstFileA(searchPath.c_str(), &fileData);
-
     const unsigned int MAX_THREADS = std::thread::hardware_concurrency();
 
     if (hFind == INVALID_HANDLE_VALUE)
@@ -152,4 +169,28 @@ void Datas::processFilesWithExtension(const std::string& extension, Images& imag
     } while (FindNextFileA(hFind, &fileData) != 0);
 
     FindClose(hFind);
+}
+
+// ============================== Implementacja Images ==============================
+
+void Images::processImage(const std::string& filePath, const std::string& filename, Datas& datas) {
+    cv::Mat image = cv::imread(filePath, cv::IMREAD_COLOR);
+    if (image.empty()) {
+        std::lock_guard<std::mutex> lock(coutMutex);
+        std::cerr << "Nie mozna zaladowac obrazu: " << filePath << std::endl;
+        return;
+    }
+
+    cv::Mat edges;
+    cv::Canny(image, edges, 50, 150);
+
+    {
+        std::lock_guard<std::mutex> lock(datasMutex);
+        datas.save2path(edges, filename);
+    }
+
+    {
+        std::lock_guard<std::mutex> lock(coutMutex);
+        std::cout << "Zapisano: " << filename << std::endl;
+    }
 }

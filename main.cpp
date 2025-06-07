@@ -10,33 +10,23 @@
 #include <thread>
 #include "Classys.cpp"
 
- /**
-  * @brief G³ówna funkcja programu.
-  *
-  * Inicjalizuje obiekty, przetwarza pliki .jpg i .png z katalogu wejœciowego i zapisuje je w katalogu wyjœciowym.
-  */
+/**
+ * @brief G³ówna funkcja programu.
+ * 
+ * Inicjalizuje obiekty, przetwarza pliki .jpg i .png z katalogu wejœciowego i zapisuje je w katalogu wyjœciowym.
+ */
 int main() {
+
+
+
     Datas datas("config.ini", "source", "destination");
-    Images images;
+    
+    
+    Datas datas2("config.ini", "testowy", "testowy2");
 
-    std::vector<std::thread> threads;
-    int count = 0;
 
-    datas.processFilesWithExtension("jpg", images, threads, count);
-    datas.processFilesWithExtension("png", images, threads, count);
+    Datas datas3("CMakeLists.txt", "testowy", "testowy2");
 
-    for (auto& t : threads) {
-        if (t.joinable())
-            t.join();
-        count++;
-    }
-
-    if (count == 0) {
-        std::cout << "bledna sciezka dostepu lub brak rozszerzen jpg/png" << std::endl;
-    }
-    else {
-        std::cout << "przetworzono " << count << " obrazow" << std::endl;
-    }
 
     return 0;
 }
