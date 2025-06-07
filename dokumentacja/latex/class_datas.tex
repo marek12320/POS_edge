@@ -1,0 +1,82 @@
+\doxysection{Datas Class Reference}
+\hypertarget{class_datas}{}\label{class_datas}\index{Datas@{Datas}}
+
+
+Klasa odpowiedzialna za zarz¹dzanie œcie¿kami, plikiem INI oraz obs³ug¹ i zapisem obrazów.  
+
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_datas_a83e0d072aef5c59b4ed449ff9ae56d79}{Datas}} (std\+::string File\+INI, std\+::string Input, std\+::string Output)
+\begin{DoxyCompactList}\small\item\em Konstruktor klasy \doxylink{class_datas}{Datas}. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_datas_ace59c4ff49615ba8743750416b62d68a}{save2path}} (const cv\+::\+Mat \&edges, const std\+::string \&name)
+\begin{DoxyCompactList}\small\item\em Zapisuje przetworzony obraz do katalogu wynikowego. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_datas_ae574c34a81348391c12f334c6988d84a}\label{class_datas_ae574c34a81348391c12f334c6988d84a} 
+std\+::string {\bfseries file\+INI}
+\begin{DoxyCompactList}\small\item\em Œcie¿ka do pliku INI \end{DoxyCompactList}\item 
+\Hypertarget{class_datas_a1668ba86765262aaeb7fc08dc9a2541c}\label{class_datas_a1668ba86765262aaeb7fc08dc9a2541c} 
+std\+::string {\bfseries input}
+\begin{DoxyCompactList}\small\item\em Klucz odpowiadaj¹cy katalogowi wejœciowemu. \end{DoxyCompactList}\item 
+\Hypertarget{class_datas_a1fe013e31ce938a5451ac3ba62f565be}\label{class_datas_a1fe013e31ce938a5451ac3ba62f565be} 
+std\+::string {\bfseries output}
+\begin{DoxyCompactList}\small\item\em Klucz odpowiadaj¹cy katalogowi wyjœciowemu. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Klasa odpowiedzialna za zarz¹dzanie œcie¿kami, plikiem INI oraz obs³ug¹ i zapisem obrazów. 
+
+\label{doc-constructors}
+\Hypertarget{class_datas_doc-constructors}
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_datas_a83e0d072aef5c59b4ed449ff9ae56d79}\index{Datas@{Datas}!Datas@{Datas}}
+\index{Datas@{Datas}!Datas@{Datas}}
+\doxysubsubsection{\texorpdfstring{Datas()}{Datas()}}
+{\footnotesize\ttfamily \label{class_datas_a83e0d072aef5c59b4ed449ff9ae56d79} 
+Datas\+::\+Datas (\begin{DoxyParamCaption}\item[{std\+::string}]{File\+INI}{, }\item[{std\+::string}]{Input}{, }\item[{std\+::string}]{Output}{}\end{DoxyParamCaption})}
+
+
+
+Konstruktor klasy \doxylink{class_datas}{Datas}. 
+
+Inicjalizuje przetwarzanie obrazów z rozszerzeniami JPG i PNG.
+
+
+\begin{DoxyParams}{Parameters}
+{\em File\+INI} & Œcie¿ka do pliku INI. \\
+\hline
+{\em Input} & Klucz z pliku INI okreœlaj¹cy katalog wejœciowy. \\
+\hline
+{\em Output} & Klucz z pliku INI okreœlaj¹cy katalog wyjœciowy. \\
+\hline
+\end{DoxyParams}
+
+
+\label{doc-func-members}
+\Hypertarget{class_datas_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_datas_ace59c4ff49615ba8743750416b62d68a}\index{Datas@{Datas}!save2path@{save2path}}
+\index{save2path@{save2path}!Datas@{Datas}}
+\doxysubsubsection{\texorpdfstring{save2path()}{save2path()}}
+{\footnotesize\ttfamily \label{class_datas_ace59c4ff49615ba8743750416b62d68a} 
+void Datas\+::save2path (\begin{DoxyParamCaption}\item[{const cv\+::\+Mat \&}]{edges}{, }\item[{const std\+::string \&}]{name}{}\end{DoxyParamCaption})}
+
+
+
+Zapisuje przetworzony obraz do katalogu wynikowego. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em edges} & Obraz do zapisania (np. wynik detekcji krawêdzi). \\
+\hline
+{\em name} & Nazwa pliku. \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/\+Marek/\+Desktop/sem8/pos/\+POS\+\_\+edge/\+POS\+\_\+edge/Classys.\+cpp\end{DoxyCompactItemize}
