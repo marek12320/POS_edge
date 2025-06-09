@@ -1,0 +1,30 @@
+Wymagania funkcjonalne i niefunkcjonalne 
+
+Funkcjonalne 
+
+Program uruchamiany z linii poleceń. 
+
+Program wczytuje plik konfiguracyjny .ini ze ścieżką źródłową i docelową. 
+
+Program wczytuje wszystkie obrazy z folderu źródłowego. 
+
+Przetwarzanie obrazów (detekcja konturów). 
+
+Zapisywanie wynikowych obrazów w folderze docelowym. 
+
+Stworzenie matrycy miniatur oryginalnych i przetworzonych obrazów. 
+
+Obsługa formatów JPG/PNG. 
+
+ 
+Pozafunkcjonalne 
+
+Wydajność: wielowątkowe przetwarzanie. 
+
+Skalowalność: możliwość łatwego dodania kolejnych funkcji (np. rozmycie, detekcja kolorów). 
+
+Niezawodność: program nie może przerwać działania przy błędnym pliku. 
+
+Zgodność: działa na Windows 
+
+Czytelność kodu i dokumentacji. 
