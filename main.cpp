@@ -3,7 +3,7 @@
  * @brief G³ówny plik wykonywalny programu do przetwarzania obrazów (Canny Edge Detection).
  */
 
-#include "Classys.cpp"
+#include "DatasImages.h"
 
 /**
  * @brief G³ówna funkcja programu.
@@ -14,13 +14,14 @@ int main() {
 
 
 
-    Datas datas("config.ini", "source", "destination");
+    Datas datas("config.ini", "source", "destination");//idealny scenariusz
     
+    Datas datas("config.ini", "source", "testowy2");//brak folderu output
     
-    Datas datas2("config.ini", "testowy", "testowy2");
+    Datas datas3("config.ini", "testowy", "testowy2");//brak wej i wyj
 
 
-    Datas datas3("CMakeLists.txt", "testowy", "testowy2");
+    Datas datas4("CMakeLists.txt", "testowy", "testowy2");//inny plik wej
 
 
     return 0;
