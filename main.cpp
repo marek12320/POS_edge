@@ -12,15 +12,19 @@
  */
 int main() {
 
-
-
+    std::cout << "test1" << std::endl;
     Datas datas("config.ini", "source", "destination");//idealny scenariusz
-    
-    Datas datas("config.ini", "source", "testowy2");//brak folderu output
-    
-    Datas datas3("config.ini", "testowy", "testowy2");//brak wej i wyj
 
 
+    std::cout << std::endl <<  "test2" << std::endl;
+    Datas datas2("config.ini", "source", "testowy2");//brak folderu output
+
+
+    std::cout << std::endl << "test3" << std::endl;
+    Datas datas3("config.ini", "testowy", "destination");//brak folderu input
+
+
+    std::cout << std::endl << "test4" << std::endl;
     Datas datas4("CMakeLists.txt", "testowy", "testowy2");//inny plik wej
 
 
