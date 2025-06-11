@@ -1,14 +1,14 @@
 /**
  * @file main.cpp
- * @brief G³ówny plik wykonywalny programu do przetwarzania obrazów (Canny Edge Detection).
+ * @brief Glowny plik wykonywalny programu do przetwarzania obrazow (Canny Edge Detection).
  */
 
 #include "DatasImages.h"
 
  /**
-  * @brief G³ówna funkcja programu.
+  * @brief Glowna funkcja programu.
   *
-  * Inicjalizuje obiekty, przetwarza pliki .jpg i .png z katalogu wejœciowego i zapisuje je w katalogu wyjœciowym.
+  * Inicjalizuje obiekty, przetwarza pliki .jpg i .png z katalogu wejsciowego i zapisuje je w katalogu wyjsciowym.
   */
 int main() {
 

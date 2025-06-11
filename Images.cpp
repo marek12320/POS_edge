@@ -89,16 +89,16 @@ void Images::showImageGrid(Datas& datas) {
         cv::namedWindow("Mozaika - Krawêdzie", cv::WINDOW_NORMAL);
         cv::imshow("Mozaika - Krawêdzie", edgeGrid);
 
-        cv::namedWindow("Mozaika - Orygina³y", cv::WINDOW_NORMAL);
-        cv::imshow("Mozaika - Orygina³y", originalGrid);
+        cv::namedWindow("Mozaika - Oryginaly", cv::WINDOW_NORMAL);
+        cv::imshow("Mozaika - Oryginaly", originalGrid);
 
         cv::waitKey(0);  // Czekamy na naciœniêcie klawisza
 
         // Zamykamy okna
-        cv::destroyWindow("Mozaika - Krawêdzie");
-        cv::destroyWindow("Mozaika - Orygina³y");
+        cv::destroyWindow("Mozaika - Krawedzie");
+        cv::destroyWindow("Mozaika - Oryginaly");
     }
     catch (const cv::Exception& e) {
-        std::cerr << "B³¹d podczas wyœwietlania lub zamykania okien: " << e.what() << std::endl;
+        std::cerr << "Blad podczas wyswietlania lub zamykania okien: " << e.what() << std::endl;
     }
 }
