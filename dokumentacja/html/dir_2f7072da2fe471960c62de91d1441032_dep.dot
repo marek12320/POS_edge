@@ -1,0 +1,16 @@
+digraph "C:/Users/Marek/Desktop"
+{
+ // LATEX_PDF_SIZE
+  bgcolor="transparent";
+  edge [fontname=Helvetica,fontsize=10,labelfontname=Helvetica,labelfontsize=10];
+  node [fontname=Helvetica,fontsize=10,shape=box,height=0.2,width=0.4];
+  compound=true
+  subgraph clusterdir_716ae8ee9952ad5882ceec38ede0425e {
+    graph [ bgcolor="#edf0f7", pencolor="grey50", label="Marek", fontname=Helvetica,fontsize=10 style="filled,dashed", URL="dir_716ae8ee9952ad5882ceec38ede0425e.html",tooltip=""]
+  subgraph clusterdir_2f7072da2fe471960c62de91d1441032 {
+    graph [ bgcolor="#edf0f7", pencolor="grey25", label="", fontname=Helvetica,fontsize=10 style="filled,bold", URL="dir_2f7072da2fe471960c62de91d1441032.html",tooltip=""]
+    dir_2f7072da2fe471960c62de91d1441032 [shape=plaintext, label="Desktop"];
+  dir_438760d2242f4d064603b748f233566d [label="sem8", fillcolor="#a2b4d6", color="grey25", style="filled", URL="dir_438760d2242f4d064603b748f233566d.html",tooltip=""];
+  }
+  }
+}
