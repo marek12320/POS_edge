@@ -1,0 +1,16 @@
+digraph "C:/Users/Marek/Desktop/sem8/pos/POS_edge"
+{
+ // LATEX_PDF_SIZE
+  bgcolor="transparent";
+  edge [fontname=Helvetica,fontsize=10,labelfontname=Helvetica,labelfontsize=10];
+  node [fontname=Helvetica,fontsize=10,shape=box,height=0.2,width=0.4];
+  compound=true
+  subgraph clusterdir_e19bbf9df98ff397a1346ed0929ddbc5 {
+    graph [ bgcolor="#edf0f7", pencolor="grey50", label="pos", fontname=Helvetica,fontsize=10 style="filled,dashed", URL="dir_e19bbf9df98ff397a1346ed0929ddbc5.html",tooltip=""]
+  subgraph clusterdir_af93ed65d407bca3a1e0770c92845163 {
+    graph [ bgcolor="#edf0f7", pencolor="grey25", label="", fontname=Helvetica,fontsize=10 style="filled,bold", URL="dir_af93ed65d407bca3a1e0770c92845163.html",tooltip=""]
+    dir_af93ed65d407bca3a1e0770c92845163 [shape=plaintext, label="POS_edge"];
+  dir_11d5cfae3e6788f1b9fc04ccab05de65 [label="build", fillcolor="#a2b4d6", color="grey25", style="filled", URL="dir_11d5cfae3e6788f1b9fc04ccab05de65.html",tooltip=""];
+  }
+  }
+}

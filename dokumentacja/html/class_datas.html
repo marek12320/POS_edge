@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.14.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>My Project: Datas Class Reference</title>
+<title>POS_Edge: Datas Class Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -26,7 +26,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">My Project
+   <div id="projectname">POS_Edge<span id="projectnumber">&#160;1.0</span>
    </div>
   </td>
  </tr>
@@ -92,13 +92,15 @@ $(function(){initNavTree('class_datas.html','','class_datas-members'); });
 </div><!--header-->
 <div class="contents">
 
-<p>Klasa odpowiedzialna za zarz¹dzanie œcie¿kami, plikiem INI oraz obs³ug¹ i zapisem obrazów.  
+<p>Forward declaration klasy <a class="el" href="class_images.html" title="Klasa odpowiedzialna za przetwarzanie obrazów (np. detekcjê krawêdzi).">Images</a>.  
  <a href="#details">More...</a></p>
+
+<p><code>#include &lt;<a class="el" href="_datas_images_8h_source.html">DatasImages.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pub-methods" class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a83e0d072aef5c59b4ed449ff9ae56d79" id="r_a83e0d072aef5c59b4ed449ff9ae56d79"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a83e0d072aef5c59b4ed449ff9ae56d79">Datas</a> (std::string FileINI, std::string Input, std::string Output)</td></tr>
-<tr class="memdesc:a83e0d072aef5c59b4ed449ff9ae56d79"><td class="mdescLeft">&#160;</td><td class="mdescRight">Konstruktor klasy <a class="el" href="class_datas.html" title="Klasa odpowiedzialna za zarz¹dzanie œcie¿kami, plikiem INI oraz obs³ug¹ i zapisem obrazów.">Datas</a>.  <br /></td></tr>
+<tr class="memdesc:a83e0d072aef5c59b4ed449ff9ae56d79"><td class="mdescLeft">&#160;</td><td class="mdescRight">Konstruktor klasy <a class="el" href="class_datas.html" title="Forward declaration klasy Images.">Datas</a>.  <br /></td></tr>
 <tr class="memitem:ace59c4ff49615ba8743750416b62d68a" id="r_ace59c4ff49615ba8743750416b62d68a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ace59c4ff49615ba8743750416b62d68a">save2path</a> (const cv::Mat &amp;edges, const std::string &amp;name)</td></tr>
 <tr class="memdesc:ace59c4ff49615ba8743750416b62d68a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Zapisuje przetworzony obraz do katalogu wynikowego.  <br /></td></tr>
 </table><table class="memberdecls">
@@ -107,15 +109,17 @@ Public Attributes</h2></td></tr>
 <tr class="memitem:ae574c34a81348391c12f334c6988d84a" id="r_ae574c34a81348391c12f334c6988d84a"><td class="memItemLeft" align="right" valign="top"><a id="ae574c34a81348391c12f334c6988d84a" name="ae574c34a81348391c12f334c6988d84a"></a>
 std::string&#160;</td><td class="memItemRight" valign="bottom"><b>fileINI</b></td></tr>
 <tr class="memdesc:ae574c34a81348391c12f334c6988d84a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Œcie¿ka do pliku INI <br /></td></tr>
-<tr class="memitem:a1668ba86765262aaeb7fc08dc9a2541c" id="r_a1668ba86765262aaeb7fc08dc9a2541c"><td class="memItemLeft" align="right" valign="top"><a id="a1668ba86765262aaeb7fc08dc9a2541c" name="a1668ba86765262aaeb7fc08dc9a2541c"></a>
-std::string&#160;</td><td class="memItemRight" valign="bottom"><b>input</b></td></tr>
-<tr class="memdesc:a1668ba86765262aaeb7fc08dc9a2541c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Klucz odpowiadaj¹cy katalogowi wejœciowemu. <br /></td></tr>
-<tr class="memitem:a1fe013e31ce938a5451ac3ba62f565be" id="r_a1fe013e31ce938a5451ac3ba62f565be"><td class="memItemLeft" align="right" valign="top"><a id="a1fe013e31ce938a5451ac3ba62f565be" name="a1fe013e31ce938a5451ac3ba62f565be"></a>
-std::string&#160;</td><td class="memItemRight" valign="bottom"><b>output</b></td></tr>
-<tr class="memdesc:a1fe013e31ce938a5451ac3ba62f565be"><td class="mdescLeft">&#160;</td><td class="mdescRight">Klucz odpowiadaj¹cy katalogowi wyjœciowemu. <br /></td></tr>
+<tr class="memitem:ad68e5558a47e7802ffd61a9eeb03ff36" id="r_ad68e5558a47e7802ffd61a9eeb03ff36"><td class="memItemLeft" align="right" valign="top"><a id="ad68e5558a47e7802ffd61a9eeb03ff36" name="ad68e5558a47e7802ffd61a9eeb03ff36"></a>
+std::string&#160;</td><td class="memItemRight" valign="bottom"><b>inputDir</b></td></tr>
+<tr class="memdesc:ad68e5558a47e7802ffd61a9eeb03ff36"><td class="mdescLeft">&#160;</td><td class="mdescRight">Klucz okreœlaj¹cy katalog wejœciowy. <br /></td></tr>
+<tr class="memitem:ac5b9579357e40ba4a3e4abde5b62850f" id="r_ac5b9579357e40ba4a3e4abde5b62850f"><td class="memItemLeft" align="right" valign="top"><a id="ac5b9579357e40ba4a3e4abde5b62850f" name="ac5b9579357e40ba4a3e4abde5b62850f"></a>
+std::string&#160;</td><td class="memItemRight" valign="bottom"><b>outputDir</b></td></tr>
+<tr class="memdesc:ac5b9579357e40ba4a3e4abde5b62850f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Klucz okreœlaj¹cy katalog wyjœciowy. <br /></td></tr>
 </table>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Klasa odpowiedzialna za zarz¹dzanie œcie¿kami, plikiem INI oraz obs³ug¹ i zapisem obrazów. </p>
+<div class="textblock"><p>Forward declaration klasy <a class="el" href="class_images.html" title="Klasa odpowiedzialna za przetwarzanie obrazów (np. detekcjê krawêdzi).">Images</a>. </p>
+<p>Klasa odpowiedzialna za zarz¹dzanie plikiem INI oraz œcie¿kami wejœcia i wyjœcia.</p>
+<p>Umo¿liwia wczytanie œcie¿ek z pliku INI, przetwarzanie plików graficznych oraz zapis wyników. </p>
 </div><a name="doc-constructors" id="doc-constructors"></a><h2 id="header-doc-constructors" class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a83e0d072aef5c59b4ed449ff9ae56d79" name="a83e0d072aef5c59b4ed449ff9ae56d79"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a83e0d072aef5c59b4ed449ff9ae56d79">&#9670;&#160;</a></span>Datas()</h2>
@@ -141,16 +145,21 @@ std::string&#160;</td><td class="memItemRight" valign="bottom"><b>output</b></td
       </table>
 </div><div class="memdoc">
 
-<p>Konstruktor klasy <a class="el" href="class_datas.html" title="Klasa odpowiedzialna za zarz¹dzanie œcie¿kami, plikiem INI oraz obs³ug¹ i zapisem obrazów.">Datas</a>. </p>
-<p>Inicjalizuje przetwarzanie obrazów z rozszerzeniami JPG i PNG.</p>
+<p>Konstruktor klasy <a class="el" href="class_datas.html" title="Forward declaration klasy Images.">Datas</a>. </p>
+<p>Inicjalizuje dane z pliku INI i rozpoczyna przetwarzanie obrazów z rozszerzeniami .jpg i .png.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">FileINI</td><td>Œcie¿ka do pliku INI. </td></tr>
-    <tr><td class="paramname">Input</td><td>Klucz z pliku INI okreœlaj¹cy katalog wejœciowy. </td></tr>
-    <tr><td class="paramname">Output</td><td>Klucz z pliku INI okreœlaj¹cy katalog wyjœciowy. </td></tr>
+    <tr><td class="paramname">Input</td><td>Klucz w pliku INI okreœlaj¹cy folder wejœciowy. </td></tr>
+    <tr><td class="paramname">Output</td><td>Klucz w pliku INI okreœlaj¹cy folder wyjœciowy. </td></tr>
   </table>
   </dd>
 </dl>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_datas_a83e0d072aef5c59b4ed449ff9ae56d79_cgraph.png" border="0" usemap="#aclass_datas_a83e0d072aef5c59b4ed449ff9ae56d79_cgraph" loading="lazy" alt=""/></div>
+</div>
 
 </div>
 </div>
@@ -177,16 +186,22 @@ std::string&#160;</td><td class="memItemRight" valign="bottom"><b>output</b></td
 <p>Zapisuje przetworzony obraz do katalogu wynikowego. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">edges</td><td>Obraz do zapisania (np. wynik detekcji krawêdzi). </td></tr>
-    <tr><td class="paramname">name</td><td>Nazwa pliku. </td></tr>
+    <tr><td class="paramname">edges</td><td>Obiekt obrazu (np. wynik detekcji krawêdzi). </td></tr>
+    <tr><td class="paramname">name</td><td>Nazwa pliku wynikowego. </td></tr>
   </table>
   </dd>
 </dl>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_datas_ace59c4ff49615ba8743750416b62d68a_icgraph.png" border="0" usemap="#aclass_datas_ace59c4ff49615ba8743750416b62d68a_icgraph" loading="lazy" alt=""/></div>
+</div>
 
 </div>
 </div>
-<hr/>The documentation for this class was generated from the following file:<ul>
-<li>C:/Users/Marek/Desktop/sem8/pos/POS_edge/POS_edge/<a class="el" href="_classys_8cpp_source.html">Classys.cpp</a></li>
+<hr/>The documentation for this class was generated from the following files:<ul>
+<li>C:/Users/Marek/Desktop/sem8/pos/POS_edge/<a class="el" href="_datas_images_8h_source.html">DatasImages.h</a></li>
+<li>C:/Users/Marek/Desktop/sem8/pos/POS_edge/<b>Datas.cpp</b></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->

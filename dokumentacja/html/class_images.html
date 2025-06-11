@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.14.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>My Project: Images Class Reference</title>
+<title>POS_Edge: Images Class Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -26,7 +26,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">My Project
+   <div id="projectname">POS_Edge<span id="projectnumber">&#160;1.0</span>
    </div>
   </td>
  </tr>
@@ -92,16 +92,22 @@ $(function(){initNavTree('class_images.html','','class_images-members'); });
 </div><!--header-->
 <div class="contents">
 
-<p>Klasa odpowiedzialna za przetwarzanie obrazów (np. wykrywanie krawêdzi).  
+<p>Klasa odpowiedzialna za przetwarzanie obrazów (np. detekcjê krawêdzi).  
  <a href="#details">More...</a></p>
+
+<p><code>#include &lt;<a class="el" href="_datas_images_8h_source.html">DatasImages.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pub-methods" class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
+<tr class="memitem:aabeb8d6c97f6853a3cb72e1483b1f99d" id="r_aabeb8d6c97f6853a3cb72e1483b1f99d"><td class="memItemLeft" align="right" valign="top"><a id="aabeb8d6c97f6853a3cb72e1483b1f99d" name="aabeb8d6c97f6853a3cb72e1483b1f99d"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>showImageGrid</b> ()</td></tr>
+<tr class="memdesc:aabeb8d6c97f6853a3cb72e1483b1f99d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Wyœwietla siatkê przetworzonych obrazów w oknie OpenCV. <br /></td></tr>
 <tr class="memitem:adf7bc7dc980fe4325d79d4a09a1a3cd4" id="r_adf7bc7dc980fe4325d79d4a09a1a3cd4"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#adf7bc7dc980fe4325d79d4a09a1a3cd4">processImage</a> (const std::string &amp;filePath, const std::string &amp;filename, <a class="el" href="class_datas.html">Datas</a> &amp;datas)</td></tr>
-<tr class="memdesc:adf7bc7dc980fe4325d79d4a09a1a3cd4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Przetwarza obraz, wykonuje detekcjê krawêdzi (Canny) i zapisuje wynik.  <br /></td></tr>
+<tr class="memdesc:adf7bc7dc980fe4325d79d4a09a1a3cd4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Przetwarza obraz, wykonuje detekcjê krawêdzi i zapisuje wynik.  <br /></td></tr>
 </table>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Klasa odpowiedzialna za przetwarzanie obrazów (np. wykrywanie krawêdzi). </p>
+<div class="textblock"><p>Klasa odpowiedzialna za przetwarzanie obrazów (np. detekcjê krawêdzi). </p>
+<p>Umo¿liwia asynchroniczne przetwarzanie obrazów oraz prezentacjê ich siatki. </p>
 </div><a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Member Function Documentation</h2>
 <a id="adf7bc7dc980fe4325d79d4a09a1a3cd4" name="adf7bc7dc980fe4325d79d4a09a1a3cd4"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#adf7bc7dc980fe4325d79d4a09a1a3cd4">&#9670;&#160;</a></span>processImage()</h2>
@@ -127,20 +133,26 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Przetwarza obraz, wykonuje detekcjê krawêdzi (Canny) i zapisuje wynik. </p>
+<p>Przetwarza obraz, wykonuje detekcjê krawêdzi i zapisuje wynik. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">filePath</td><td>Pe³na œcie¿ka do pliku wejœciowego. </td></tr>
+    <tr><td class="paramname">filePath</td><td>Pe³na œcie¿ka do pliku obrazu. </td></tr>
     <tr><td class="paramname">filename</td><td>Nazwa pliku. </td></tr>
-    <tr><td class="paramname">datas</td><td>Referencja do obiektu klasy <a class="el" href="class_datas.html" title="Klasa odpowiedzialna za zarz¹dzanie œcie¿kami, plikiem INI oraz obs³ug¹ i zapisem obrazów.">Datas</a> odpowiedzialnego za zapis. </td></tr>
+    <tr><td class="paramname">datas</td><td>Referencja do obiektu <a class="el" href="class_datas.html" title="Forward declaration klasy Images.">Datas</a>, który zarz¹dza zapisem obrazu. </td></tr>
   </table>
   </dd>
 </dl>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_images_adf7bc7dc980fe4325d79d4a09a1a3cd4_cgraph.png" border="0" usemap="#aclass_images_adf7bc7dc980fe4325d79d4a09a1a3cd4_cgraph" loading="lazy" alt=""/></div>
+</div>
 
 </div>
 </div>
-<hr/>The documentation for this class was generated from the following file:<ul>
-<li>C:/Users/Marek/Desktop/sem8/pos/POS_edge/POS_edge/<a class="el" href="_classys_8cpp_source.html">Classys.cpp</a></li>
+<hr/>The documentation for this class was generated from the following files:<ul>
+<li>C:/Users/Marek/Desktop/sem8/pos/POS_edge/<a class="el" href="_datas_images_8h_source.html">DatasImages.h</a></li>
+<li>C:/Users/Marek/Desktop/sem8/pos/POS_edge/<b>Images.cpp</b></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->

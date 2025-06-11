@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.14.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>My Project: Main Page</title>
+<title>POS_Edge: Strona główna</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -26,7 +26,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">My Project
+   <div id="projectname">POS_Edge<span id="projectnumber">&#160;1.0</span>
    </div>
   </td>
  </tr>
@@ -88,11 +88,17 @@ $(function(){initNavTree('index.html','',''); });
 </div>
 
 <div class="header">
-  <div class="headertitle"><div class="title">My Project Documentation</div></div>
+  <div class="headertitle"><div class="title">POS_Edge Dokumentacja</div></div>
 </div><!--header-->
 <div class="contents">
 <a href="doxygen_crawl.html"></a>
-</div><!-- contents -->
+</div>
+<div> <div> 
+
+Program realizuje automatyczne przetwarzanie obrazów, uruchamiane z poziomu linii poleceń. Na podstawie danych zawartych w pliku konfiguracyjnym INI odczytuje ścieżki do folderów z obrazami źródłowymi i docelowymi. Następnie wczytuje wszystkie pliki graficzne z folderu wejściowego i przetwarza je wielowątkowo, wykorzystując algorytm detekcji konturów. Przefiltrowane obrazy zapisywane są w folderze docelowym.
+
+Dodatkowo program generuje dwa pliki graficzne w formie matryc miniatur: pierwszy przedstawia miniatury oryginalnych obrazów, drugi – obrazów po przetworzeniu. Miniatury zachowują oryginalne proporcje wysokości i szerokości, co umożliwia szybkie porównanie wyników działania programu. Rozwiązanie zostało zoptymalizowane pod kątem wydajności, co pozwala na przetwarzanie dużych zbiorów danych (powyżej 500 plików). Program korzysta z biblioteki OpenCV do operacji na obrazach oraz z darmowej biblioteki do analizy plików INI.
+</div></div><!-- contents -->
 </div><!-- doc-content -->
 </div><!-- container -->
 <!-- start footer part -->

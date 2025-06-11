@@ -1,0 +1,11 @@
+digraph "Images::processImage"
+{
+ // LATEX_PDF_SIZE
+  bgcolor="transparent";
+  edge [fontname=Helvetica,fontsize=10,labelfontname=Helvetica,labelfontsize=10];
+  node [fontname=Helvetica,fontsize=10,shape=box,height=0.2,width=0.4];
+  rankdir="LR";
+  Node1 [id="Node000001",label="Images::processImage",height=0.2,width=0.4,color="gray40", fillcolor="grey60", style="filled", fontcolor="black",tooltip="Przetwarza obraz, wykonuje detekcjê krawêdzi i zapisuje wynik."];
+  Node1 -> Node2 [id="edge1_Node000001_Node000002",color="steelblue1",style="solid",tooltip=" "];
+  Node2 [id="Node000002",label="Datas::save2path",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$class_datas.html#ace59c4ff49615ba8743750416b62d68a",tooltip="Zapisuje przetworzony obraz do katalogu wynikowego."];
+}
